@@ -1,4 +1,5 @@
 #include "Bat.h"
+#include "Globals.h"
 #include <GL\freeglut.h>
 
 Bat::Bat() {
@@ -27,8 +28,8 @@ void Bat::drawBat() {
 	glFlush();
 }
 
-void Bat::move() {
-
+void Bat::move(int direction) {
+	this->x += direction * Globals::DELTA;
 }
 
 float Bat::getX() {
@@ -37,12 +38,4 @@ float Bat::getX() {
 
 float Bat::getY() {
 	return this->y;
-}
-
-void Bat::setX(float x) {
-	this->x = x;
-}
-
-void Bat::setY(float y) {
-	this->y = y;
 }

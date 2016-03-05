@@ -7,10 +7,17 @@ public:
 
 	static const float BAT_WIDTH;
 	static const float BAT_HEIGHT;
-	static const float DX;
+	static const float BALL_WIDTH;
+	static const float BALL_HEIGHT;
+	static const float DELTA;
 
 	static const float START_X;
 	static const float START_Y;
+	static const float START_X_BALL;
+	static const float START_Y_BALL;
+
+	static const int LEFT = -1;
+	static const int RIGHT = 1;
 
 	Globals();
 	~Globals();

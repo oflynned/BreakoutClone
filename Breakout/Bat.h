@@ -11,12 +11,9 @@ public:
 	~Bat();
 
 	void drawBat();
-	void move();
+	void move(int direction);
 
 	float getX();
 	float getY();
-
-	void setX(float x);
-	void setY(float y);
 };
 
