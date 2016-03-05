@@ -5,9 +5,11 @@ Bat::Bat() {
 
 }
 
-Bat::Bat(float width, float height) {
+Bat::Bat(float width, float height, float x, float y) {
 	this->width = width;
 	this->height = height;
+	this->x = x;
+	this->y = y;
 }
 
 Bat::~Bat(){
@@ -17,10 +19,10 @@ Bat::~Bat(){
 void Bat::drawBat() {
 	glBegin(GL_QUADS);
 	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex2f(-0.5f, -0.5f);
-	glVertex2f(0.5f, -0.5f);
-	glVertex2f(0.5f, 0.5f);
-	glVertex2f(-0.5f, 0.5f);
+	glVertex2f(x, y);
+	glVertex2f(x, y+height);
+	glVertex2f(x+width, y+height);
+	glVertex2f(x+width, y);
 	glEnd();
 	glFlush();
 }

@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include <GL/freeglut.h>
+#include <GL\freeglut.h>
 
 #include "Ball.h"
 #include "Bat.h"
@@ -13,7 +13,7 @@ void garbageCollection();
 
 bool isDone = false;
 
-Bat* bat = new Bat(0.1f, 0.1f, 0.1f, 0.1f);
+Bat* bat = new Bat(Globals::BAT_WIDTH, Globals::BAT_HEIGHT, Globals::START_X, Globals::START_Y);
 
 int main(int argc, char** argv) {
 	initialiseGL(argc, argv);

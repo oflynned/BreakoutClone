@@ -7,7 +7,7 @@ private:
 
 public:
 	Bat();
-	Bat(float width, float height);
+	Bat(float width, float height, float x, float y);
 	~Bat();
 
 	void drawBat();
