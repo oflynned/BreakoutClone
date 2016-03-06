@@ -10,6 +10,7 @@ public:
 	static const float BALL_WIDTH;
 	static const float BALL_HEIGHT;
 	static const float DELTA;
+	static const float BALL_SPEED;
 
 	static const float START_X;
 	static const float START_Y;
@@ -18,6 +19,16 @@ public:
 
 	static const int LEFT = -1;
 	static const int RIGHT = 1;
+
+	static const float UPDATE_INTERVAL;
+	static const float PI;
+
+	enum Collision
+	{
+		horizontal,
+		vertical,
+		bat
+	};
 
 	Globals();
 	~Globals();

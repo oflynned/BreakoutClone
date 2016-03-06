@@ -10,6 +10,7 @@
 void initialiseGL(int argc, char** argv);
 void display();
 void handleInputs(unsigned char key, int x, int y);
+void update(int value);
 void draw();
 void garbageCollection();
 
@@ -17,12 +18,13 @@ bool isDone = false;
 bool* keyStates = new bool[256];
 
 Bat* bat = new Bat(Globals::BAT_WIDTH, Globals::BAT_HEIGHT, Globals::START_X, Globals::START_Y);
-Ball* ball = new Ball();
+Ball* ball = new Ball(Globals::BALL_WIDTH, Globals::BALL_HEIGHT, Globals::START_X_BALL, Globals::START_Y_BALL, Globals::BALL_SPEED);
 
 int main(int argc, char** argv) {
 	initialiseGL(argc, argv);
 	glutDisplayFunc(display);
 	glutIdleFunc(display);
+	glutTimerFunc(Globals::UPDATE_INTERVAL, update, 0);
 	glutMainLoop();
 	garbageCollection();
 	return 0;
@@ -48,23 +50,33 @@ void display() {
 void handleInputs(unsigned char key, int x, int y) {
 	printf("bat x: %f\n", bat->getX());
 	if(key == 'a') {
-		if (bat->getX() > -1 + Globals::DELTA * 3 && bat->getX() + Globals::BAT_WIDTH < 1 - Globals::DELTA * 3) {
-			printf("'a' pressed\n");
+		if (bat->getX() > -1 + Globals::DELTA * 3) {
 			bat->move(Globals::LEFT);
 		}
+		else if (bat->getX() == -1 + Globals::DELTA * 3) {
+			bat->move(0);
+		}
 	} else if (key == 'd') {
-		if (bat->getX() > -1 + Globals::DELTA * 3 && bat->getX() + Globals::BAT_WIDTH < 1 - Globals::DELTA * 3) {
-			printf("'d' pressed\n");
+		if (bat->getX() + Globals::BAT_WIDTH < 1 - Globals::DELTA * 3) {
 			bat->move(Globals::RIGHT);
 		}
+		else if (bat->getX() + Globals::BAT_WIDTH == 1 - Globals::DELTA * 3) {
+			bat->move(0);
+		}
 	} else if(key == 27) {
-		printf("ESC pressed\n");
 		exit(0);
 	}
 }
 
+void update(int value) {
+	ball->move(bat->getX(), bat->getY());
+	glutPostRedisplay();
+	glutTimerFunc(Globals::UPDATE_INTERVAL, update, 0);
+}
+
 void draw() {
 	bat->drawBat();
+	ball->drawBall();
 }
 
 void garbageCollection() {
