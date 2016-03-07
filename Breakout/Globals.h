@@ -18,10 +18,14 @@ public:
 	static const float START_Y_BALL;
 
 	static const int LEFT = -1;
+	static const int STOP = 0;
 	static const int RIGHT = 1;
 
 	static const float UPDATE_INTERVAL;
 	static const float PI;
+
+	static const float BOX_WIDTH;
+	static const float BOX_HEIGHT;
 
 	enum Collision
 	{

@@ -17,6 +17,9 @@ const float Globals::START_Y_BALL = -BALL_HEIGHT / 2;
 const float Globals::UPDATE_INTERVAL = 30.0f;
 const float Globals::PI = 3.14f;
 
+const float Globals::BOX_HEIGHT = 0.15f;
+const float Globals::BOX_WIDTH = 0.15f;
+
 Globals::Globals()
 {
 }

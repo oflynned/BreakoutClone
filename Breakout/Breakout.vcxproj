@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Globals.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Globals.h" />
